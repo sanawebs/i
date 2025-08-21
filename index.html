@@ -1573,24 +1573,100 @@ Level Right Now!</h2>				</div>
 							<div class="elementor-shortcode">
 <div class="wpcf7 no-js" id="wpcf7-f111-p1017-o1" lang="en-US" dir="ltr">
 <div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
-<form action="/?simply_static_page=1#wpcf7-f111-p1017-o1" method="post" class="wpcf7-form init" aria-label="Contact form" novalidate="novalidate" data-status="init">
-<div style="display: none;">
-<input type="hidden" name="_wpcf7" value="111">
-<input type="hidden" name="_wpcf7_version" value="5.9.8">
-<input type="hidden" name="_wpcf7_locale" value="en_US">
-<input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f111-p1017-o1">
-<input type="hidden" name="_wpcf7_container_post" value="1017">
-<input type="hidden" name="_wpcf7_posted_data_hash" value="">
-</div>
-<p><span class="wpcf7-form-control-wrap" data-name="your-name"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Your Name *" value="" type="text" name="your-name"></span>
-</p>
-<p><span class="wpcf7-form-control-wrap" data-name="your-email"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="Your Email *" value="" type="email" name="your-email"></span>
-</p>
-<p><span class="wpcf7-form-control-wrap" data-name="your-message"><textarea cols="40" rows="10" maxlength="2000" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Message..." name="your-message"></textarea></span>
-</p>
-<p><button type="submit" class="wpcf7-submit octf-btn octf-btn-primary octf-btn-icon"> Send Message <i class="flaticon-right-arrow-1"></i></button>
-</p><div class="wpcf7-response-output" aria-hidden="true"></div>
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+<!-- Google form / contact Form (no iframe, JS submit) -->
+<form id="contactForm"
+      action="https://docs.google.com/forms/d/e/1FAIpQLSc8lhPdU2HhkrYyhnyfhrJneZMDK-Cjecvrjp0616x2zEQItw/formResponse"
+      method="POST" accept-charset="utf-8">
+  <div class="contact-form">
+    <p><input type="text" name="entry.2005620554" placeholder="Your Name *" required></p>
+    <p><input type="email" name="entry.1045781291" placeholder="Your Email *" required></p>
+    <p><textarea name="entry.839337160" placeholder="Message..." rows="5" required></textarea></p>
+    <p>
+      <button type="submit">
+        <span class="text">Send Message</span>
+        <span class="circle">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793L9.146 4.354a.5.5 0 1 1 .708-.708l4.5 4.5a.498.498 0 0 1 .146.35.498.498 0 0 1-.146.35l-4.5 4.5a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+          </svg>
+        </span>
+      </button>
+    </p>
+    <div id="success-message" style="display:none; color:green; margin-top:10px;">
+      ✅ Thank you — your message has been sent!
+    </div>
+  </div>
 </form>
+
+<style>
+.contact-form{max-width:500px;margin:auto}
+.contact-form input,.contact-form textarea{
+  width:100%;padding:12px 18px;margin-bottom:4px;border:1px solid #ddd;
+  border-radius:25px;font-size:15px;outline:none;transition:border .3s
+}
+.contact-form textarea{border-radius:15px}
+.contact-form input:focus,.contact-form textarea:focus{border-color:#f34236}
+.contact-form button{
+  display:inline-flex;align-items:center;background:linear-gradient(90deg,#ff512f,#f34236);
+  color:#fff;font-size:14px;font-weight:bold;border:none;padding:8px 16px;border-radius:40px;
+  cursor:pointer;transition:.3s;box-shadow:0 4px 10px rgba(0,0,0,.15)
+}
+.contact-form button:hover{transform:translateY(-2px)}
+.contact-form button .circle{
+  margin-left:12px;width:36px;height:36px;border-radius:50%;background:#fff;
+  display:flex;align-items:center;justify-content:center
+}
+.contact-form button .circle svg{width:16px;height:16px;fill:#f34236}
+</style>
+
+<script>
+  (function () {
+    const form = document.getElementById('contactForm');
+    const success = document.getElementById('success-message');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();                                  // don't leave the page
+      const data = new FormData(form);
+
+      // Post to Google Forms without redirect
+      fetch(form.action, { method: 'POST', mode: 'no-cors', body: data })
+        .then(() => {
+          success.style.display = 'block';                 // show success locally
+          form.reset();
+        })
+        .catch(() => {
+          alert('Sorry, something went wrong. Please try again.');
+        });
+    });
+  })();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div>
 </div>
 						</div>
@@ -1793,13 +1869,9 @@ Level Right Now!</h2>				</div>
 wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
 /* ]]> */
 </script>
-<script type="text/javascript" src="./wp-content/plugins/contact-form-7/includes/swv/js/index.js?ver=5.9.8" id="swv-js"></script>
-<script type="text/javascript" id="contact-form-7-js-extra">
-/* <![CDATA[ */
-var wpcf7 = {"api":{"root":"\/\/wp-json\/","namespace":"contact-form-7\/v1"}};
-/* ]]> */
-</script>
-<script type="text/javascript" src="./wp-content/plugins/contact-form-7/includes/js/index.js?ver=5.9.8" id="contact-form-7-js"></script>
+
+
+
 <script type="text/javascript" src="./wp-content/themes/onum/js/slick.min.js?ver=20190829" id="slick-slider-js"></script>
 <script type="text/javascript" src="./wp-content/themes/onum/js/jquery.magnific-popup.min.js?ver=20190829" id="magnific-popup-js"></script>
 <script type="text/javascript" src="./wp-content/themes/onum/js/jquery.isotope.min.js?ver=20190829" id="isotope-js"></script>
@@ -1822,4 +1894,6 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 </script>
 <script type="text/javascript" src="./wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.27.6" id="elementor-frontend-js"></script>
 </body>
+
 </html>
+
